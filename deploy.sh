@@ -109,11 +109,27 @@ fi
 # 2. Select node version
 selectNodeVersion
 
-# 3. Install npm packages
+# 3. Install prod npm packages
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   eval $NPM_CMD install --production
   exitWithMessageOnError "npm failed"
+  cd - > /dev/null
+fi
+
+# 4. Install dev npm packages
+if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
+  cd "$DEPLOYMENT_TARGET"
+  eval $NPM_CMD install --dev
+  exitWithMessageOnError "npm failed"
+  cd - > /dev/null
+fi
+
+# 5. Run Grunt tasks
+if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
+  cd "$DEPLOYMENT_TARGET"
+  eval ./node_modules/.bin/grunt
+  exitWithMessageOnError "Grunt failed"
   cd - > /dev/null
 fi
 
