@@ -2,10 +2,10 @@
   "name": "mfnode022",
   "version": "1.0.1",
   "description": "demo node web app with custom deployment",
-  "main": "server.js",
+  "main": "server.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.min.js"
   },
   "keywords": [
     "demo"
@@ -17,8 +17,8 @@
     "express": "^4.13.3"
   },
   "devDependencies": {
-    "jshint": "^2.9.2",
-    "chai": "^3.5.0",
-    "mocha": "^3.1.0"
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-uglify": "^2.0.0"
   }
 }

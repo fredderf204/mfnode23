@@ -98,7 +98,7 @@ selectNodeVersion () {
 # Deployment
 # ----------
 
-echo Handling node.js deployment.
+echo "starting node.js deployment"
 
 # 1. KuduSync
 if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
@@ -113,7 +113,7 @@ selectNodeVersion
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   eval $NPM_CMD install --production
-  exitWithMessageOnError "npm failed"
+  exitWithMessageOnError "npm pro install failed"
   cd - > /dev/null
 fi
 
@@ -121,7 +121,7 @@ fi
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   eval $NPM_CMD install --dev
-  exitWithMessageOnError "npm failed"
+  exitWithMessageOnError "npm dev install failed"
   cd - > /dev/null
 fi
 
@@ -129,7 +129,7 @@ fi
 if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
   cd "$DEPLOYMENT_TARGET"
   eval ./node_modules/.bin/grunt
-  exitWithMessageOnError "Grunt failed"
+  exitWithMessageOnError "Grunt tasks failed"
   cd - > /dev/null
 fi
 
