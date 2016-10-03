@@ -113,7 +113,7 @@ selectNodeVersion
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   eval $NPM_CMD install --production
-  exitWithMessageOnError "npm pro install failed"
+  exitWithMessageOnError "npm prod install failed"
   cd - > /dev/null
 fi
 
@@ -128,7 +128,7 @@ fi
 # 5. Run Grunt tasks
 if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
   cd "$DEPLOYMENT_TARGET"
-  eval ./node_modules/.bin/grunt
+  eval ./node_modules/.bin/grunt --no-color
   exitWithMessageOnError "Grunt tasks failed"
   cd - > /dev/null
 fi
