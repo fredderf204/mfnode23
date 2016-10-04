@@ -120,7 +120,7 @@ fi
 # 4. Install dev npm packages
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
-  eval $NPM_CMD install --dev
+  eval $NPM_CMD install --only=dev
   exitWithMessageOnError "npm dev install failed"
   cd - > /dev/null
 fi
