@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     //mocha for unit tests
     mochaTest: {
       test: {
-        src: ['test/test.js']
+        src: ['test/*.js']
       }
     },
     //code security check
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
     }
   });
 
-  // Load the pgrunt plugins
+  // Load the grunt plugins
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-nsp');
   grunt.loadNpmTasks('grunt-contrib-uglify');
