@@ -22,9 +22,9 @@ module.exports = function(grunt) {
   });
 
   // Load the pgrunt plugins
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-mocha');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify','mocha']);
+  grunt.registerTask('default', ['mocha','uglify']);
 };
