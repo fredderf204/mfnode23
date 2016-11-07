@@ -5,7 +5,7 @@ var addresses = require('../server.js');
 describe('Unit Test', function() {
   describe('Get IP Addresses', function() {
     it('expect addreses to be an array', function() {
-      expect(addresses).to.be.a('array');
+      expect(addresses.addresses).to.be.a('array');
     });   
   });
 });

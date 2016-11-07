@@ -4,9 +4,9 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     //mocha for unit tests
-    mocha: {
-      all: {
-        src: ['tests/test.js']
+    mochaTest: {
+      test: {
+        src: ['test/test.js']
       }
     },
     //uglify to minise server.js
@@ -22,9 +22,9 @@ module.exports = function(grunt) {
   });
 
   // Load the pgrunt plugins
-  grunt.loadNpmTasks('grunt-mocha');
+  grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Default task(s).
-  grunt.registerTask('default', ['mocha','uglify']);
+  grunt.registerTask('default', ['mochaTest','uglify']);
 };
