@@ -67,4 +67,4 @@ console.log('process pid = ' + process.pid);
 //export modules for testing
 module.exports = {
     addresses: addresses
-}
+};
