@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     //mocha for unit tests
     mochaTest: {
       test: {
-        src: ['test/*.js']
+        src: ['test/mochatest.js']
       }
     },
     //code security check
