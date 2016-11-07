@@ -9,6 +9,10 @@ module.exports = function(grunt) {
         src: ['test/test.js']
       }
     },
+    //code security check
+    nsp: {
+      package: grunt.file.readJSON('package.json')
+    },
     //uglify to minise server.js
     uglify: {
       options: {
@@ -23,8 +27,9 @@ module.exports = function(grunt) {
 
   // Load the pgrunt plugins
   grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-nsp');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Default task(s).
-  grunt.registerTask('default', ['mochaTest','uglify']);
+  grunt.registerTask('default', ['mochaTest','nsp','uglify']);
 };
